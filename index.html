@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRACE — Greater Roslyn Association for Chinese Enrichment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+TC:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B2549;
+      --blue:       #1A4FA3;
+      --blue-mid:   #2B6CB8;
+      --blue-light: #C7DCF5;
+      --blue-pale:  #EFF5FD;
+      --red:        #C8273A;
+      --gold:       #C5922A;
+      --white:      #ffffff;
+      --off-white:  #F4F6FB;
+      --text:       #1A1C2B;
+      --text-muted: rgba(26,28,43,0.55);
+      --page-pad:   clamp(24px, 5vw, 72px);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px var(--page-pad);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(26,79,163,0.1);
+    }
+    .nav-logo-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding-left: 16px;
+      border-left: 2px solid rgba(26,79,163,0.2);
+    }
+    .nav-logo-name {
+      font-size: 13px; font-weight: 700;
+      color: var(--navy); line-height: 1.1; letter-spacing: -0.01em;
+    }
+    .nav-logo-sub {
+      font-size: 13px; font-weight: 700;
+      color: var(--navy); letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+    .nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 16px; font-weight: 500;
+      color: var(--navy); text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta {
+      background: var(--blue); color: var(--white);
+      font-size: 16px; font-weight: 600;
+      padding: 10px 24px; border-radius: 100px;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(26,79,163,0.35);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 130px var(--page-pad) 80px;
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before, .hero::after { display: none; }
+
+    /* ─── BG PATTERN ─── */
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(26,79,163,0.13) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--red); border-radius: 2px;
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 82px);
+      font-weight: 900; line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+    .hero-sub {
+      font-size: 15px; line-height: 1.7;
+      color: var(--text-muted); max-width: 400px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .hero-btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 13px; font-weight: 600;
+      padding: 12px 26px; border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(11,37,73,0.28);
+    }
+    .hero-btn-secondary {
+      font-size: 13px; font-weight: 600;
+      color: var(--blue); text-decoration: none;
+      border-bottom: 1.5px solid var(--blue);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .hero-btn-secondary:hover { opacity: 0.6; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(26,79,163,0.12);
+      align-items: start;
+    }
+    .hero-stat-block {
+      padding-right: 40px;
+    }
+    .hero-stat-block + .hero-stat-block {
+      padding-left: 40px;
+      padding-right: 0;
+      border-left: 1px solid rgba(26,79,163,0.12);
+    }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900; letter-spacing: -0.03em;
+      line-height: 1; color: var(--navy);
+    }
+    .hero-stat-label {
+      font-size: 12px; color: var(--text-muted);
+      line-height: 1.5; margin-top: 6px;
+    }
+    .hero-stat-phrase {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .hero-stat-body {
+      font-size: 13px; line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px;
+      justify-content: center; align-items: stretch;
+    }
+    .hero-card {
+      border-radius: 20px; overflow: hidden;
+      position: relative;
+      width: 340px; height: 220px;
+      flex: 0 0 220px;
+    }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(11,37,73,0.45), transparent 50%);
+    }
+    .hero-badge {
+      position: absolute; bottom: 14px; left: 14px; right: 14px;
+      z-index: 2;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px; padding: 8px 12px;
+    }
+    .hero-badge-title {
+      font-size: 11px; font-weight: 600; color: #fff;
+      line-height: 1.4;
+    }
+    .hero-badge-sub {
+      font-size: 10px; color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── BLUE STRIP ─── */
+    .blue-strip {
+      background: var(--blue); height: 4px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 96px var(--page-pad);
+      background: var(--white);
+    }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-img {
+      border-radius: 24px; overflow: hidden; height: 400px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(11,37,73,0.12), 0 4px 16px rgba(11,37,73,0.08);
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
+    .about-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,79,163,0.15), transparent);
+      mix-blend-mode: multiply;
+    }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--blue); border-radius: 2px;
+    }
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--navy); margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 15px; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 16px;
+    }
+    .about-arrow {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid rgba(26,79,163,0.3); cursor: pointer;
+      margin-top: 8px;
+      transition: border-color 0.2s, transform 0.25s;
+    }
+    .about-arrow:hover { border-color: var(--blue); transform: rotate(-45deg); }
+
+    /* ─── PROGRAMS ─── */
+    .prog { padding: 80px var(--page-pad); }
+    .prog--offwhite { background: var(--off-white); }
+    .prog--blue     { background: var(--blue); color: var(--white); }
+    .prog--navy     { background: var(--navy); color: var(--white); }
+    .prog--red      { background: var(--red); color: var(--white); }
+
+    .prog-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center; gap: 40px;
+      position: relative;
+    }
+    .prog-body { position: relative; z-index: 1; }
+    .prog-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px;
+      background: rgba(0,0,0,0.08); margin-bottom: 20px;
+      color: inherit;
+    }
+    .prog--blue .prog-tag,
+    .prog--navy .prog-tag,
+    .prog--red .prog-tag { background: rgba(255,255,255,0.18); }
+
+    .prog-heading-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .prog-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 62px);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+    }
+    .prog-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 9vw, 120px);
+      font-weight: 900; letter-spacing: -0.05em;
+      line-height: 1; opacity: 0.1;
+      margin-left: 24px;
+    }
+    .prog--offwhite .prog-h2 { color: var(--navy); }
+    .prog--offwhite .prog-num { color: var(--navy); }
+
+    .prog-desc {
+      font-size: 14px; line-height: 1.75;
+      max-width: 460px; margin-bottom: 28px;
+    }
+    .prog--offwhite .prog-desc { color: var(--text-muted); }
+    .prog--blue .prog-desc,
+    .prog--navy .prog-desc,
+    .prog--red .prog-desc { opacity: 0.78; }
+
+    .prog-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; text-decoration: none;
+      color: inherit; border-bottom: 1.5px solid currentColor;
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .prog-link:hover { opacity: 0.5; }
+    .prog-photo {
+      width: 196px; height: 272px;
+      border-radius: 18px; overflow: hidden; flex-shrink: 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+    .prog-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .prog-photo--landscape { width: 480px; height: 320px; }
+    .prog-photos {
+      display: flex; flex-direction: row; gap: 14px; flex-shrink: 0;
+    }
+    .prog-photos .prog-photo {
+      width: 196px; height: 272px;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery { padding: 100px var(--page-pad); background: var(--white); }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; }
+    .gallery-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 100px);
+      font-weight: 900; letter-spacing: -0.04em;
+      line-height: 0.95; margin-bottom: 60px;
+      color: var(--navy);
+    }
+    .gallery-heading em { font-style: italic; color: var(--blue); }
+    .gallery-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .gallery-card {
+      border-radius: 18px; overflow: hidden;
+      aspect-ratio: 4/5; position: relative;
+    }
+    .gallery-card img, .gallery-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(11,37,73,0.55), transparent 55%);
+    }
+
+    /* ─── COMMUNITY ─── */
+    .community {
+      padding: 72px var(--page-pad);
+      background: var(--off-white);
+      border-top: 1px solid rgba(26,79,163,0.1);
+    }
+    .community-inner { max-width: 1200px; margin: 0 auto; }
+    .community-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 36px;
+    }
+    .community-row {
+      display: flex; align-items: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .comm-tag {
+      font-size: 14px; font-weight: 600;
+      color: var(--navy);
+      padding: 7px 18px;
+      border: 1.5px solid rgba(26,79,163,0.2);
+      border-radius: 100px;
+      opacity: 0.6;
+      transition: opacity 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .comm-tag:hover { opacity: 1; border-color: var(--blue); }
+    .comm-tag.highlight {
+      background: var(--blue); color: var(--white);
+      border-color: var(--blue); opacity: 1;
+    }
+    .comm-tag.red-tag {
+      background: var(--red); color: var(--white);
+      border-color: var(--red); opacity: 1;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      padding: 100px var(--page-pad);
+      background: var(--navy); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,79,163,0.4) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-light);
+      margin-bottom: 24px;
+    }
+    .cta-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 900; letter-spacing: -0.04em;
+      line-height: 0.96; margin-bottom: 44px;
+      color: var(--white);
+    }
+    .cta-h2 em { font-style: italic; color: var(--blue-light); }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white); color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 14px 32px; border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%; background: var(--red);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.5); opacity: 0.6; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text); color: var(--white);
+      padding: 60px var(--page-pad) 40px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 56px;
+    }
+    .footer-logo img {
+      height: 40px; width: auto; display: block;
+      mix-blend-mode: screen;
+    }
+    .footer-nav { display: flex; gap: 60px; }
+    .footer-col h4 {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0.35; margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a {
+      font-size: 13px; color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-copy { font-size: 11px; opacity: 0.3; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-soc {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-soc:hover { border-color: #fff; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" />
+      <div class="nav-logo-text">
+        
+        <div class="nav-logo-sub">Greater Roslyn Association for Chinese Enrichment</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- Background dot grid pattern -->
+    <div class="hero-bg-pattern"></div>
+
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Roslyn, New York</div>
+        <h1 class="hero-h1">Celebrating<br><em>Heritage.</em><br>Building<br>Community.</h1>
+        <p class="hero-sub">GRACE — Greater Roslyn Association for Chinese Enrichment — is a 501(c)(3) non-profit dedicated to serving Chinese American families in Roslyn through culture, education, and community service.</p>
+        <div class="hero-actions">
+          <a href="about.html" class="hero-btn-secondary">Learn About Us</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-block">
+            <div class="hero-stat-num">2019</div>
+            <div class="hero-stat-label">Established in<br>Roslyn, NY</div>
+          </div>
+          <div class="hero-stat-block">
+            <div class="hero-stat-phrase">More than an Idea</div>
+            <div class="hero-stat-body">GRACE is a community-driven organization committed to bringing families together, supporting our schools, sharing our culture, learning from others, and celebrating one another as one community.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <img src="brand_assets/Photos/craft_making_event.jpg" alt="GRACE Summer Carnival" />
+          <div class="hero-badge">
+            <div class="hero-badge-title">Summer Carnival</div>
+            <div class="hero-badge-sub">Annual community gathering</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="brand_assets/Photos/lion_dance_performance.jpg" alt="Lion dance performance at GRACE Lunar New Year Gala" />
+          <div class="hero-badge">
+            <div class="hero-badge-title">Lunar New Year Gala</div>
+            <div class="hero-badge-sub">Annual celebration</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="brand_assets/Photos/team_bagels_and_bao.jpg" alt="North Hempstead Dragon Boat Festival" style="object-position: center 70%;" />
+          <div class="hero-badge">
+            <div class="hero-badge-title">North Hempstead Dragon Boat Festival</div>
+            <div class="hero-badge-sub">Community gathering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ACCENT STRIP -->
+  <div class="blue-strip"></div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="brand_assets/Photos/grace_inclusivity_tent.jpg" alt="GRACE Inclusivity tent at community event" />
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-h2">Rooted in Culture.<br>Growing Together.</h2>
+        <p>GRACE (Greater Roslyn Association for Chinese Enrichment) was built on a simple but powerful idea: when families feel connected, supported, and heard, an entire community becomes stronger. As a nonprofit 501(c)(3) organization, we are proud to serve Chinese American families in Roslyn by creating a space where culture is celebrated, voices are valued, and relationships can flourish.</p>
+        <p>Our mission is not only to support families, but to help them feel a true sense of belonging. Through education, community service, and civic engagement, GRACE brings people together, encourages participation, and helps families become more connected to the life of our town. We serve as a bridge between Chinese families, local government, the school district, and the broader Roslyn community, building understanding and creating opportunities for everyone to grow together.</p>
+        <p>We believe that by sharing information, creating meaningful programs, and bringing families together, we can enrich lives in lasting ways. GRACE is more than an organization — it is a community built on care, connection, and hope for the future. Together, we can create a Roslyn where every family feels welcomed, empowered, and at home.</p>
+        <a href="about.html" class="about-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY PILLARS -->
+  <!-- MARQUEE: WHAT WE STAND FOR -->
+  <section class="marquee-section">
+    <p class="marquee-label">What we stand for</p>
+    <div class="marquee-track-wrap">
+      <div class="marquee-track" id="marquee-row-1" data-velocity="1.2">
+        <div class="marquee-inner">
+          <span>Tradition</span><span>Community</span><span>Culture</span><span>Opportunity</span><span>Education</span><span>Heritage</span><span>Inclusion</span><span>Tradition</span><span>Community</span><span>Culture</span><span>Opportunity</span><span>Education</span><span>Heritage</span><span>Inclusion</span>
+        </div>
+      </div>
+      <div class="marquee-track" id="marquee-row-2" data-velocity="-1">
+        <div class="marquee-inner">
+          <span>Heritage</span><span>Culture</span><span>Inclusion</span><span>Tradition</span><span>Education</span><span>Community</span><span>Opportunity</span><span>Heritage</span><span>Culture</span><span>Inclusion</span><span>Tradition</span><span>Education</span><span>Community</span><span>Opportunity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .marquee-section {
+      padding: 64px 0;
+      background: var(--off-white);
+      border-top: 1px solid rgba(26,79,163,0.1);
+      overflow: hidden;
+    }
+    .marquee-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 32px;
+      padding: 0 var(--page-pad);
+    }
+    .marquee-track-wrap { display: flex; flex-direction: column; gap: 18px; }
+    .marquee-track { overflow: hidden; width: 100%; }
+    .marquee-inner {
+      display: flex; gap: 0; width: max-content;
+      will-change: transform;
+    }
+    .marquee-inner span {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 900; letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--navy);
+      padding: 0 40px;
+      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 0;
+    }
+    .marquee-inner span::after {
+      content: '·';
+      margin-left: 40px;
+      color: var(--blue);
+      opacity: 0.4;
+    }
+    #marquee-row-2 .marquee-inner span:nth-child(3n) { color: var(--red); }
+    #marquee-row-1 .marquee-inner span:nth-child(4n) { color: var(--blue); }
+  </style>
+
+  <script>
+    (function() {
+      const tracks = document.querySelectorAll('.marquee-track');
+      let lastY = window.scrollY;
+      let scrollVel = 0;
+      let smoothVel = 0;
+
+      window.addEventListener('scroll', () => {
+        const dy = window.scrollY - lastY;
+        lastY = window.scrollY;
+        scrollVel = dy;
+      });
+
+      const positions = {};
+      tracks.forEach((track, i) => {
+        positions[i] = 0;
+      });
+
+      function tick() {
+        // Decay scroll velocity
+        smoothVel += (scrollVel - smoothVel) * 0.15;
+        scrollVel *= 0.8;
+
+        tracks.forEach((track, i) => {
+          const inner = track.querySelector('.marquee-inner');
+          const vel = parseFloat(track.dataset.velocity) || 3;
+          const boost = smoothVel * 0.04;
+          positions[i] += vel + (vel > 0 ? boost : -boost);
+
+          // Wrap: reset when shifted by half the inner width
+          const halfW = inner.scrollWidth / 2;
+          if (vel > 0 && positions[i] >= halfW) positions[i] -= halfW;
+          if (vel < 0 && positions[i] <= -halfW) positions[i] += halfW;
+
+          inner.style.transform = `translateX(${-positions[i]}px)`;
+        });
+
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gallery-inner">
+      <h2 class="gallery-heading">A community<br><em>in celebration.</em></h2>
+      <div class="gallery-cards">
+        <div class="gallery-card"><img src="brand_assets/Photos/dragon_boat.jpg" alt="Dragon boat racing at North Hempstead" /></div>
+        <div class="gallery-card"><video id="gallery-vid" autoplay muted playsinline><source src="A_0070D045A260228_200649J4_CANON.MP4" type="video/mp4" /></video></div>
+        <div class="gallery-card"><img src="brand_assets/Photos/aylus_roslyn_branch.jpg" alt="AYLUS Roslyn Branch" /></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">Get Involved</div>
+      <h2 class="cta-h2">Join the<br><em>GRACE</em><br>Family.</h2>
+      <a href="membership.html" class="cta-btn">
+        <span class="pulse-dot"></span>
+        Get Involved
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" />
+      <div class="nav-logo-text">
+        
+        <div class="nav-logo-sub">Greater Roslyn Association for Chinese Enrichment</div>
+      </div>
+        </div>
+        <div class="footer-nav">
+
+          <div class="footer-col">
+            <h4>Organization</h4>
+            <ul>
+              <li><a href="about.html">About GRACE</a></li>
+              <li><a href="about.html#leadership">Leadership</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="events.html">News & Updates</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 GRACE — Greater Roslyn Association for Chinese Enrichment. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-soc">FB</a>
+          <a href="#" class="footer-soc">WX</a>
+          <a href="#" class="footer-soc">IG</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const vid = document.getElementById('gallery-vid');
+    if (vid) {
+      vid.addEventListener('timeupdate', () => {
+        if (vid.currentTime >= 18) vid.currentTime = 0;
+      });
+      vid.addEventListener('loadedmetadata', () => { vid.currentTime = 0; vid.play(); });
+    }
+  </script>
+</body>
+</html>

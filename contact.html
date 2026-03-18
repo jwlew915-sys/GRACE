@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — GRACE: Greater Roslyn Association for Chinese Enrichment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+TC:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B2549;
+      --blue:       #1A4FA3;
+      --blue-mid:   #2B6CB8;
+      --blue-light: #C7DCF5;
+      --blue-pale:  #EFF5FD;
+      --red:        #C8273A;
+      --gold:       #C5922A;
+      --white:      #ffffff;
+      --off-white:  #F4F6FB;
+      --text:       #1A1C2B;
+      --text-muted: rgba(26,28,43,0.55);
+      --page-pad:   clamp(24px, 5vw, 72px);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 12px var(--page-pad); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(26,79,163,0.1); }
+    .nav-logo-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding-left: 16px;
+      border-left: 2px solid rgba(26,79,163,0.2);
+    }
+    .nav-logo-name {
+      font-size: 13px; font-weight: 700;
+      color: var(--navy); line-height: 1.1; letter-spacing: -0.01em;
+    }
+    .nav-logo-sub {
+      font-size: 13px; font-weight: 700;
+      color: var(--navy); letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 72px; width: auto; display: block; }
+    .nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 16px; font-weight: 500; color: var(--navy); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .nav-cta { background: var(--blue); color: var(--white); font-size: 16px; font-weight: 600; padding: 10px 24px; border-radius: 100px; text-decoration: none; letter-spacing: -0.01em; transition: transform 0.2s, box-shadow 0.2s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(26,79,163,0.35); }
+
+    .page-hero { padding: 140px var(--page-pad) 80px; background: var(--off-white); position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(rgba(26,79,163,0.13) 1px, transparent 1px); background-size: 24px 24px; mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%); -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%); }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; }
+    .page-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--red); border-radius: 2px; }
+    .page-h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 7vw, 96px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; color: var(--navy); max-width: 700px; }
+    .page-h1 em { font-style: italic; color: var(--blue); }
+    .page-sub { font-size: 16px; line-height: 1.7; color: var(--text-muted); max-width: 520px; margin-top: 24px; }
+
+    .blue-strip { background: var(--blue); height: 4px; }
+
+    /* ─── CONTACT MAIN ─── */
+    .contact-main { padding: 96px var(--page-pad); background: var(--white); }
+    .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+
+    /* ─── CONTACT INFO ─── */
+    .contact-info {}
+    .section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; }
+    .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; }
+    .section-h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 20px; }
+    .contact-desc { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 48px; }
+    .contact-blocks { display: flex; flex-direction: column; gap: 28px; }
+    .contact-block { display: flex; gap: 20px; align-items: flex-start; }
+    .contact-block-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--blue-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .contact-block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-block-value { font-size: 15px; font-weight: 500; color: var(--navy); }
+    .contact-block-value a { color: var(--blue); text-decoration: none; }
+    .contact-block-value a:hover { text-decoration: underline; }
+
+    .contact-socials { display: flex; gap: 12px; margin-top: 40px; }
+    .contact-soc {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid rgba(26,79,163,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      color: var(--navy); text-decoration: none; opacity: 0.6;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+    .contact-soc:hover { border-color: var(--blue); opacity: 1; }
+
+    /* ─── FORM ─── */
+    .contact-form-wrap {}
+    .form-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: 0.04em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 1.5px solid rgba(26,79,163,0.18);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26,79,163,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; padding: 14px 28px;
+      background: var(--navy); color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      border: none; border-radius: 100px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11,37,73,0.28); }
+
+    footer { background: var(--text); color: var(--white); padding: 60px var(--page-pad) 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 56px; }
+    .footer-logo img { height: 40px; width: auto; display: block; mix-blend-mode: screen; }
+    .footer-nav { display: flex; gap: 60px; }
+    .footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.35; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-copy { font-size: 11px; opacity: 0.3; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-soc { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .footer-soc:hover { border-color: #fff; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" />
+      <div class="nav-logo-text">
+        
+        <div class="nav-logo-sub">Greater Roslyn Association for Chinese Enrichment</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Get in Touch</div>
+      <h1 class="page-h1">We'd Love<br>to<br><em>Hear From You.</em></h1>
+      <p class="page-sub">Whether you have a question, want to get involved, or just want to say hello — we're here and happy to connect.</p>
+    </div>
+  </section>
+
+  <div class="blue-strip"></div>
+
+  <section class="contact-main">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-eyebrow">Contact</div>
+        <h2 class="section-h2">Reach Out to GRACE</h2>
+        <p class="contact-desc">We serve the Chinese American community in Roslyn, New York. Feel free to reach out with any questions about our programs, events, membership, or partnership opportunities.</p>
+
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <div class="contact-block-icon">📍</div>
+            <div>
+              <div class="contact-block-label">Location</div>
+              <div class="contact-block-value">Roslyn, New York<br>Long Island, NY</div>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-icon">✉️</div>
+            <div>
+              <div class="contact-block-label">Email</div>
+              <div class="contact-block-value"><a href="mailto:info@graceroslyn.org">info@graceroslyn.org</a></div>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-icon">🌐</div>
+            <div>
+              <div class="contact-block-label">Follow Us</div>
+              <div class="contact-block-value">Facebook · WeChat · Instagram</div>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-icon">🏛️</div>
+            <div>
+              <div class="contact-block-label">Organization</div>
+              <div class="contact-block-value">501(c)(3) Non-Profit<br>Est. 2019 · Roslyn, NY</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <a href="#" class="contact-soc">FB</a>
+          <a href="#" class="contact-soc">WX</a>
+          <a href="#" class="contact-soc">IG</a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <div class="form-title">Send Us a Message</div>
+        <form id="contact-form">
+          <input type="hidden" name="access_key" value="b0918acb-92eb-41ce-82d6-1bfbec6ff575" />
+          <input type="hidden" name="subject" value="New GRACE Website Contact Form Submission" />
+          <input type="hidden" name="from_name" value="GRACE Website" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject-select">Subject</label>
+            <select id="subject-select" name="topic">
+              <option value="">Select a topic…</option>
+              <option>General Inquiry</option>
+              <option>Membership</option>
+              <option>Events & Programs</option>
+              <option>Volunteering</option>
+              <option>Sponsorship & Partnership</option>
+              <option>Media & Press</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+          <div id="form-success" style="display:none; margin-top:16px; padding:16px 20px; background:#EFF5FD; border-radius:10px; color:#0B2549; font-size:14px; font-weight:500;">
+            ✓ Message sent! We'll be in touch soon.
+          </div>
+          <div id="form-error" style="display:none; margin-top:16px; padding:16px 20px; background:#FEF2F2; border-radius:10px; color:#991B1B; font-size:14px; font-weight:500;">
+            Something went wrong. Please email us directly at roslyngrace8@gmail.com.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" />
+      <div class="nav-logo-text">
+        
+        <div class="nav-logo-sub">Greater Roslyn Association for Chinese Enrichment</div>
+      </div>
+        </div>
+        <div class="footer-nav">
+
+          <div class="footer-col">
+            <h4>Organization</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About GRACE</a></li>
+              <li><a href="about.html#leadership">Leadership</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="events.html">News & Updates</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 GRACE — Greater Roslyn Association for Chinese Enrichment. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-soc">FB</a>
+          <a href="#" class="footer-soc">WX</a>
+          <a href="#" class="footer-soc">IG</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const success = document.getElementById('form-success');
+      const error = document.getElementById('form-error');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      success.style.display = 'none';
+      error.style.display = 'none';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(this)
+        });
+        const data = await res.json();
+        if (data.success) {
+          success.style.display = 'block';
+          this.reset();
+        } else {
+          error.style.display = 'block';
+        }
+      } catch(err) {
+        error.style.display = 'block';
+      }
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>

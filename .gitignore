@@ -1,0 +1,9 @@
+node_modules/
+.claude/
+Skills/
+Video-to-Website/
+temporary screenshots/
+*.png.tmp
+A_0070D045A260228_200649J4_CANON.MP4
+clone_screenshot.png
+serve.py
