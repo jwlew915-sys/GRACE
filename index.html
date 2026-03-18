@@ -525,7 +525,75 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .footer-soc:hover { border-color: #fff; color: #fff; }
-  </style>
+  .nav-hamburger { display: none; background: none; border: none; font-size: 24px; color: var(--navy); cursor: pointer; padding: 4px 8px; }
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: block; }
+  .nav-links {
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(14px);
+    flex-direction: column; align-items: center;
+    gap: 0; padding: 0;
+    transform: none; left: 0;
+    display: none;
+    border-bottom: 1px solid rgba(26,79,163,0.1);
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; text-align: center; }
+  .nav-links a { display: block; padding: 16px; font-size: 18px; border-bottom: 1px solid rgba(26,79,163,0.06); }
+  .nav-logo img { height: 52px; }
+  .nav-logo-text { display: none; }
+
+  /* Hero */
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+
+  /* Story / 2-col grids */
+  .story-inner { grid-template-columns: 1fr; gap: 40px; }
+  .mv-inner { grid-template-columns: 1fr; gap: 32px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .membership-inner { grid-template-columns: 1fr; gap: 48px; }
+
+  /* 4-col → 2-col → 1-col */
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .board-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .perks-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Events grids */
+  .upcoming-grid { grid-template-columns: 1fr; }
+  .past-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Padding */
+  .hero { padding: 110px 20px 60px; }
+  .story, .values, .leadership, .cta, .contact-main, .membership-main { padding: 60px 20px; }
+  .mv { padding: 60px 20px; }
+
+  /* Featured event */
+  .featured-inner { grid-template-columns: 1fr; }
+  .featured-img { height: 260px; }
+
+  /* Footer */
+  .footer-top { flex-direction: column; gap: 40px; }
+  .footer-nav { flex-wrap: wrap; gap: 32px; }
+
+  /* Form */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* Values header */
+  .values-header { flex-direction: column; gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .board-grid { grid-template-columns: 1fr; }
+  .past-grid { grid-template-columns: 1fr; }
+  .perks-grid { grid-template-columns: 1fr; }
+  .page-h1 { font-size: 48px; }
+}
+
+</style>
 </head>
 <body>
 
@@ -544,7 +612,8 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     
-  </nav>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">&#9776;</button>
+</nav>
 
   <!-- HERO -->
   <section class="hero">
@@ -793,6 +862,13 @@
       });
       vid.addEventListener('loadedmetadata', () => { vid.currentTime = 0; vid.play(); });
     }
-  </script>
+  
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  }
+
+</script>
 </body>
 </html>
