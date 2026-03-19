@@ -69,6 +69,14 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(26,79,163,0.35); }
+    .nav-socials { display: flex; align-items: center; gap: 12px; }
+    .nav-soc {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); opacity: 0.55;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-soc:hover { opacity: 1; transform: translateY(-1px); }
 
     /* ─── PAGE HERO ─── */
     .page-hero {
@@ -354,11 +362,7 @@
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" />
-      <div class="nav-logo-text">
-        
-        <div class="nav-logo-sub">Greater Roslyn Association for Chinese Enrichment</div>
-      </div>
+      <img src="brand_assets/Photos/Logo.png" alt="GRACE 羅斯林華協" />
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -366,7 +370,10 @@
       <li><a href="events.html" class="active">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    
+    <div class="nav-socials">
+      <a href="https://www.facebook.com/roslyn.grace.311" target="_blank" rel="noopener" class="nav-soc" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/roslyn_grace8" target="_blank" rel="noopener" class="nav-soc" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">&#9776;</button>
 </nav>
 
@@ -498,11 +505,16 @@
             <h4>Organization</h4>
             <ul>
               <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About GRACE</a></li>
+              <li><a href="about.html">About GRACE</a></li>
               <li><a href="about.html#leadership">Leadership</a></li>
-              <li><a href="membership.html">Membership</a></li>
-              <li><a href="events.html">News & Updates</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+              <li><a href="events.html">Events</a></li>
               <li><a href="contact.html">Contact</a></li>
+              <li><a href="membership.html">Membership</a></li>
             </ul>
           </div>
         </div>
@@ -510,8 +522,7 @@
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 GRACE — Greater Roslyn Association for Chinese Enrichment. All rights reserved.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-soc">FB</a>
-          <a href="#" class="footer-soc">WX</a>
+          <a href="https://www.facebook.com/roslyn.grace.311" target="_blank" rel="noopener" class="footer-soc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
           <a href="https://www.instagram.com/roslyn_grace8" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
         </div>
       </div>
