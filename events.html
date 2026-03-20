@@ -99,7 +99,7 @@
     .page-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--red); border-radius: 2px; }
     .page-h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 7vw, 96px);
+      font-size: clamp(34px, 7vw, 96px);
       font-weight: 900; line-height: 1.0; letter-spacing: -0.03em;
       color: var(--navy); max-width: 700px;
     }
@@ -118,7 +118,7 @@
     .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; }
     .section-h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(26px, 4vw, 52px);
       font-weight: 700; line-height: 1.1;
       letter-spacing: -0.02em; color: var(--navy); margin-bottom: 20px;
     }
@@ -250,7 +250,7 @@
     }
     .cta::before {
       content: ''; position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%); width: 700px; height: 700px;
+      transform: translate(-50%, -50%); width: clamp(300px, 90vw, 700px); height: clamp(300px, 90vw, 700px);
       border-radius: 50%;
       background: radial-gradient(circle, rgba(26,79,163,0.4) 0%, transparent 65%);
       pointer-events: none;
@@ -325,7 +325,7 @@
   /* FEATURED EVENT */
   .featured { padding: 60px 20px; }
   .featured-card { grid-template-columns: 1fr !important; }
-  .featured-img { height: 240px; border-radius: 16px 16px 0 0; }
+  .featured-img { height: 240px; }
   .featured-body { padding: 28px 24px; }
   .event-title-large { font-size: 26px; }
 
@@ -351,7 +351,7 @@
 
   /* FOOTER */
   footer { padding: 60px 20px 40px; }
-  .footer-top { flex-direction: column; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
   .footer-brand { align-items: center; text-align: center; }
   .footer-brand img { margin: 0 auto; }
   .footer-tagline { text-align: center; max-width: 100%; }
@@ -437,7 +437,7 @@
         <div class="event-row">
           <div class="event-date-block">
             <div class="event-month">TBD</div>
-            <div class="event-day" style="font-size: 22px;">TBD</div>
+            <div class="event-day">TBD</div>
           </div>
           <div class="event-info">
             <div class="event-tag">Culture</div>
@@ -508,7 +508,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" style="height:64px;width:auto;display:block;align-self:flex-start;max-width:220px;object-fit:contain;" />
+          <img src="brand_assets/logo.png" alt="GRACE 羅斯林華協" style="height:64px;width:auto;display:block;max-width:220px;object-fit:contain;" />
           <p class="footer-tagline">Greater Roslyn Association for Chinese Enrichment — serving and strengthening the Chinese American community in Roslyn, NY since 2019.</p>
         </div>
         <div class="footer-nav">
