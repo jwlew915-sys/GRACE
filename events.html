@@ -141,6 +141,9 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to right, transparent 60%, rgba(11,37,73,0.2));
     }
+    .featured-img--poster { height: auto; }
+    .featured-img--poster img { object-fit: cover; object-position: center; background: var(--navy); }
+    .featured-img--poster::after { display: none; }
     .featured-body {
       padding: 56px 48px;
       display: flex; flex-direction: column; justify-content: center;
@@ -326,6 +329,7 @@
   .featured { padding: 60px 20px; }
   .featured-card { grid-template-columns: 1fr !important; }
   .featured-img { height: 240px; }
+  .featured-img--poster { height: 240px; }
   .featured-body { padding: 28px 24px; }
   .event-title-large { font-size: 26px; }
 
@@ -408,19 +412,20 @@
     <div class="featured-inner">
       <div class="section-eyebrow" style="margin-bottom: 32px;">Featured Event</div>
       <div class="featured-card">
-        <div class="featured-img">
-          <img src="brand_assets/Photos/lion_dance_performance.jpg" alt="Lunar New Year Gala" />
+        <div class="featured-img featured-img--poster">
+          <img src="brand_assets/Photos/save_the_date_2026_gala_v2.png" alt="Save the Date: GRACE 2026 Annual Gala, Leonard's Palazzo, October 2, 2026" />
         </div>
         <div class="featured-body">
-          <div class="event-date-large">2026 Lunar New Year Gala</div>
-          <h2 class="event-title-large">An Evening of Culture & Celebration</h2>
-          <p class="event-desc">Join us for GRACE's annual Lunar New Year Gala — a spectacular evening featuring lion dance performances, traditional music, cultural showcases, and a festive banquet bringing together families from across the Roslyn community.</p>
+          <div class="event-badge">Annual Fundraiser</div>
+          <div class="event-date-large">2026 Annual Gala</div>
+          <h2 class="event-title-large">An Evening to Celebrate Community</h2>
+          <p class="event-desc">Join GRACE for our 2026 Annual Gala — a celebratory dinner honoring the families, volunteers, and partners who bring our community together, with proceeds supporting GRACE's programs throughout the year. Sponsorship packages and individual tickets are available.</p>
           <div class="event-meta">
-            <div class="event-meta-item">📅 February 28, 2026</div>
-            <div class="event-meta-item">📍 Sid Jacobson JCC</div>
-            <div class="event-meta-item">🎟 Open to All</div>
+            <div class="event-meta-item">📅 October 2, 2026, 6:30pm</div>
+            <div class="event-meta-item">📍 Leonard's Palazzo</div>
+            <div class="event-meta-item">🎟 Tickets from $185</div>
           </div>
-          <a href="contact.html" class="event-btn">Get Notified →</a>
+          <a href="https://www.zeffy.com/en-US/ticketing/annual-gala-5489" target="_blank" rel="noopener" class="event-btn">Get Tickets →</a>
         </div>
       </div>
     </div>
@@ -457,6 +462,16 @@
         <h2 class="section-h2">Past Celebrations</h2>
       </div>
       <div class="past-grid">
+        <div class="past-card">
+          <div class="past-img">
+            <img src="brand_assets/Photos/lion_dance_performance.jpg" alt="Lunar New Year Gala" />
+          </div>
+          <div class="past-body">
+            <div class="past-year">2026 · Cultural</div>
+            <div class="past-title">Lunar New Year Gala</div>
+            <p class="past-desc">A spectacular evening of lion dance performances, traditional music, cultural showcases, and a festive banquet at Sid Jacobson JCC.</p>
+          </div>
+        </div>
         <div class="past-card">
           <div class="past-img">
             <img src="brand_assets/Photos/lion_dance_performance.jpg" alt="Lunar New Year" />

@@ -231,6 +231,88 @@
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(11,37,73,0.45), transparent 50%);
     }
+    .hero-card--poster {
+      width: 100%; max-width: 480px;
+      height: auto; aspect-ratio: 2000 / 1414;
+      flex: none;
+      box-shadow: 0 20px 48px rgba(11,37,73,0.18), 0 4px 12px rgba(11,37,73,0.1);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .hero-card--poster img { object-fit: contain; background: var(--white); }
+    .hero-card--poster::after { display: none; }
+    .hero-card--poster:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(11,37,73,0.24), 0 6px 16px rgba(11,37,73,0.14);
+    }
+    .hero-card--poster:active { transform: translateY(-1px); }
+    .hero-card--poster:focus-visible {
+      outline: 2px solid var(--blue); outline-offset: 4px;
+    }
+
+    .hero-tickets-link {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; max-width: 480px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+      padding: 15px 22px;
+      border-radius: 100px;
+      border: 1px solid rgba(197,146,42,0.45);
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(11,37,73,0.18);
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+    .hero-tickets-link svg { flex: none; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .hero-tickets-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(11,37,73,0.26);
+      background: #123566;
+    }
+    .hero-tickets-link:hover svg { transform: translateX(3px); }
+    .hero-tickets-link:active { transform: translateY(0); }
+    .hero-tickets-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    /* ─── POSTER LIGHTBOX ─── */
+    .poster-lightbox {
+      position: fixed; inset: 0; z-index: 300;
+      display: flex; align-items: center; justify-content: center;
+      padding: 64px 24px;
+      background: rgba(11,37,73,0.82);
+      backdrop-filter: blur(6px);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .poster-lightbox.open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .poster-lightbox-content {
+      position: relative;
+      max-width: min(880px, 100%); max-height: 100%;
+      transform: scale(0.96); opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+    }
+    .poster-lightbox.open .poster-lightbox-content { transform: scale(1); opacity: 1; }
+    .poster-lightbox-content img {
+      display: block; width: 100%; max-height: 82vh;
+      object-fit: contain; border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.4);
+    }
+    .poster-lightbox-close {
+      position: absolute; top: -48px; right: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .poster-lightbox-close:hover { background: rgba(255,255,255,0.22); transform: scale(1.06); }
+    .poster-lightbox-close:active { transform: scale(0.94); }
+    .poster-lightbox-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    @media (max-width: 560px) {
+      .poster-lightbox { padding: 56px 16px 24px; }
+      .poster-lightbox-close { top: -40px; }
+    }
     .hero-badge {
       position: absolute; bottom: 14px; left: 14px; right: 14px;
       z-index: 2;
@@ -659,27 +741,17 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card">
-          <img src="brand_assets/Photos/craft_making_event.jpg" alt="GRACE Summer Carnival" />
-          <div class="hero-badge">
-            <div class="hero-badge-title">Summer Carnival</div>
-            <div class="hero-badge-sub">Annual community gathering</div>
-          </div>
+        <div class="hero-card hero-card--poster" data-lightbox tabindex="0" role="button" aria-label="View larger: Save the Date, GRACE 2026 Annual Gala">
+          <img src="brand_assets/Photos/save_the_date_2026_gala.png" alt="Save the Date: GRACE 2026 Annual Gala, Leonard's Palazzo, October 2, 2026" />
         </div>
-        <div class="hero-card">
-          <img src="brand_assets/Photos/lion_dance_performance.jpg" alt="Lion dance performance at GRACE Lunar New Year Gala" />
-          <div class="hero-badge">
-            <div class="hero-badge-title">Lunar New Year Gala</div>
-            <div class="hero-badge-sub">Annual celebration</div>
-          </div>
+        <div class="hero-card hero-card--poster" data-lightbox tabindex="0" role="button" aria-label="View larger: GRACE 2026 Annual Gala sponsorship levels and ticket pricing">
+          <img src="brand_assets/Photos/gala_sponsorship_2026.png" alt="GRACE 2026 Annual Gala sponsorship levels and ticket pricing" />
         </div>
-        <div class="hero-card">
-          <img src="brand_assets/Photos/team_bagels_and_bao.jpg" alt="North Hempstead Dragon Boat Festival" style="object-position: center 70%;" />
-          <div class="hero-badge">
-            <div class="hero-badge-title">North Hempstead Dragon Boat Festival</div>
-            <div class="hero-badge-sub">Community gathering</div>
-          </div>
-        </div>
+        <a href="events.html" class="hero-tickets-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 0 0 6v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a3 3 0 0 1 0-6V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><line x1="13" y1="6" x2="13" y2="18" stroke-dasharray="2 2"/></svg>
+          Get Event &amp; Ticket Info
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -872,6 +944,16 @@
     </div>
   </footer>
 
+  <!-- POSTER LIGHTBOX -->
+  <div class="poster-lightbox" id="poster-lightbox" aria-hidden="true">
+    <div class="poster-lightbox-content">
+      <button type="button" class="poster-lightbox-close" id="poster-lightbox-close" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+      <img id="poster-lightbox-img" src="" alt="" />
+    </div>
+  </div>
+
   <script>
     const vid = document.getElementById('gallery-vid');
     if (vid) {
@@ -888,6 +970,46 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
   }
 
+  const lightbox = document.getElementById('poster-lightbox');
+  const lightboxImg = document.getElementById('poster-lightbox-img');
+  const lightboxClose = document.getElementById('poster-lightbox-close');
+  let lastFocused = null;
+
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lastFocused = document.activeElement;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(card => {
+    card.addEventListener('click', () => openLightbox(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(card);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
 
 </script>
 </body>
