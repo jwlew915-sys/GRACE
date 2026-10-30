@@ -1,12 +1,36 @@
 {
   "events": [
     {
+      "event": "2026 Dragon Boat",
+      "photos": [
+        "brand_assets/Photos/events/2026-dragon-boat/whatsapp-image-2026-10-30-at-9-16-25-am-1.jpeg",
+        "brand_assets/Photos/events/2026-dragon-boat/whatsapp-image-2026-10-30-at-9-16-25-am-2.jpeg",
+        "brand_assets/Photos/events/2026-dragon-boat/whatsapp-image-2026-10-30-at-9-16-25-am-3.jpeg",
+        "brand_assets/Photos/events/2026-dragon-boat/whatsapp-image-2026-10-30-at-9-16-25-am-4.jpeg",
+        "brand_assets/Photos/events/2026-dragon-boat/whatsapp-image-2026-10-30-at-9-16-25-am.jpeg"
+      ]
+    },
+    {
+      "event": "2026 Nassau County Mid Autumn",
+      "photos": [
+        "brand_assets/Photos/events/2026-nassau-county-mid-autumn/1whatsapp-image-2026-10-30-at-9-25-09-am.jpeg",
+        "brand_assets/Photos/events/2026-nassau-county-mid-autumn/2whatsapp-image-2026-10-30-at-9-25-09-am.jpeg",
+        "brand_assets/Photos/events/2026-nassau-county-mid-autumn/whatsapp-image-2026-10-30-at-9-25-09-am.jpeg"
+      ]
+    },
+    {
+      "event": "2026 Smash Hunger",
+      "photos": [
+        "brand_assets/Photos/events/2026-smash-hunger/smash-hunger.jpeg",
+        "brand_assets/Photos/events/2026-smash-hunger/smash-hunger-2.jpeg"
+      ]
+    },
+    {
       "event": "Coffee w GRACE",
       "photos": [
         "brand_assets/Photos/events/coffee-w-grace/whatsapp-image-2026-10-30-at-8-53-51-am-1.jpeg",
         "brand_assets/Photos/events/coffee-w-grace/whatsapp-image-2026-10-30-at-8-53-51-am-2.jpeg",
         "brand_assets/Photos/events/coffee-w-grace/whatsapp-image-2026-10-30-at-8-53-51-am-3.jpeg",
-        "brand_assets/Photos/events/coffee-w-grace/whatsapp-image-2026-10-30-at-8-53-51-am-4.jpeg",
         "brand_assets/Photos/events/coffee-w-grace/whatsapp-image-2026-10-30-at-8-53-51-am.jpeg"
       ]
     }
