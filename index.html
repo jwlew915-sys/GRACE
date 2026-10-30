@@ -231,15 +231,19 @@
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(11,37,73,0.45), transparent 50%);
     }
+    .hero-flyers {
+      display: flex; flex-wrap: wrap; align-items: flex-end;
+      gap: 16px;
+    }
     .hero-card--poster {
-      width: 100%; max-width: 480px;
-      height: auto; aspect-ratio: 2000 / 1414;
-      flex: none;
+      /* width derives from height + each card's own aspect-ratio (set inline) */
+      height: 230px; width: auto; max-width: 100%;
+      flex: 0 0 auto;
       box-shadow: 0 20px 48px rgba(11,37,73,0.18), 0 4px 12px rgba(11,37,73,0.1);
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
     }
-    .hero-card--poster img { object-fit: contain; background: var(--white); }
+    .hero-card--poster img { width: 100%; height: 100%; object-fit: contain; background: var(--white); }
     .hero-card--poster::after { display: none; }
     .hero-card--poster:hover {
       transform: translateY(-4px);
@@ -252,7 +256,7 @@
 
     .hero-tickets-link {
       display: flex; align-items: center; justify-content: center; gap: 9px;
-      width: 100%; max-width: 480px;
+      width: 100%; max-width: 560px;
       background: var(--navy);
       color: var(--gold);
       font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
@@ -702,6 +706,8 @@
   .hero-stats { grid-template-columns: 1fr; gap: 24px; }
   .hero-stat-block { padding-right: 0; padding-left: 0 !important; border-left: none !important; padding-top: 24px; border-top: 1px solid rgba(26,79,163,0.12); }
   .hero-stat-block:first-child { padding-top: 0; border-top: none; }
+  .hero-flyers { flex-direction: column; width: 100%; align-items: center; }
+  .hero-card--poster { height: auto; width: 100%; max-width: 320px; }
 
   /* ABOUT */
   .about { padding: 60px 20px; }
@@ -806,12 +812,17 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card hero-card--poster" data-lightbox tabindex="0" role="button" aria-label="View larger: Save the Date, GRACE 2027 Annual Gala">
-          <img src="brand_assets/Photos/gala_flyer_2027.png" alt="Save the Date: GRACE 2027 Annual Gala, Leonard's Palazzo, March 2027" />
+        <div class="hero-flyers">
+          <div class="hero-card hero-card--poster" style="aspect-ratio: 2000 / 1414;" data-lightbox tabindex="0" role="button" aria-label="View larger: Save the Date, GRACE 2027 Annual Gala">
+            <img src="brand_assets/Photos/gala_flyer_2027.png" alt="Save the Date: GRACE 2027 Annual Gala, Leonard's Palazzo, March 2027" />
+          </div>
+          <div class="hero-card hero-card--poster" style="aspect-ratio: 1236 / 1600;" data-lightbox tabindex="0" role="button" aria-label="View larger: Coffee with GRACE, Thursday November 5, 10am, Pilar Coffee Bar, Roslyn">
+            <img src="brand_assets/Photos/coffee_with_grace_flyer.jpeg" alt="Coffee with GRACE: Thursday, November 5, 10:00 AM at Pilar Coffee Bar, 333 Warner Avenue, Roslyn, NY" />
+          </div>
         </div>
         <a href="events.html" class="hero-tickets-link">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 0 0 6v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a3 3 0 0 1 0-6V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><line x1="13" y1="6" x2="13" y2="18" stroke-dasharray="2 2"/></svg>
-          Get Event &amp; Ticket Info
+          See All Upcoming Events
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
