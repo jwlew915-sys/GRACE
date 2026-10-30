@@ -129,6 +129,7 @@
       background: var(--white);
     }
     .featured-inner { max-width: 1200px; margin: 0 auto; }
+    .featured-cards { display: flex; flex-direction: column; gap: 28px; }
     .featured-card {
       border-radius: 28px; overflow: hidden;
       display: grid; grid-template-columns: 1fr 1fr;
@@ -141,7 +142,7 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to right, transparent 60%, rgba(11,37,73,0.2));
     }
-    .featured-img--poster { height: auto; aspect-ratio: 2000 / 1414; }
+    .featured-img--poster { height: auto; /* aspect-ratio set inline per card */ }
     .featured-img--poster img { object-fit: contain; object-position: center; background: var(--white); }
     .featured-img--poster::after { display: none; }
     .featured-body {
@@ -411,21 +412,39 @@
   <!-- FEATURED EVENT -->
   <section class="featured">
     <div class="featured-inner">
-      <div class="section-eyebrow" style="margin-bottom: 32px;">Featured Event</div>
-      <div class="featured-card">
-        <div class="featured-img featured-img--poster">
-          <img src="brand_assets/Photos/gala_flyer_2027.png" alt="Save the Date: GRACE 2027 Annual Gala, Leonard's Palazzo, March 2027" />
-        </div>
-        <div class="featured-body">
-          <div class="event-badge">Annual Fundraiser</div>
-          <div class="event-date-large">2027 Annual Gala</div>
-          <h2 class="event-title-large">Save the Date</h2>
-          <p class="event-desc">Join GRACE for our 2027 Annual Gala — a celebratory dinner honoring the families, volunteers, and partners who bring our community together, with proceeds supporting GRACE's programs throughout the year. Full event details and tickets will be announced soon.</p>
-          <div class="event-meta">
-            <div class="event-meta-item">📅 March 2027</div>
-            <div class="event-meta-item">📍 Leonard's Palazzo</div>
+      <div class="section-eyebrow" style="margin-bottom: 32px;">Featured Events</div>
+      <div class="featured-cards">
+        <div class="featured-card">
+          <div class="featured-img featured-img--poster">
+            <img src="brand_assets/Photos/coffee_with_grace_flyer.jpeg" style="aspect-ratio: 1236 / 1600;" alt="Coffee with GRACE: Thursday, November 5, 10:00 AM at Pilar Coffee Bar, 333 Warner Avenue, Roslyn, NY" />
           </div>
-          <a href="mailto:roslyngrace8@gmail.com" class="event-btn">Contact Us →</a>
+          <div class="featured-body">
+            <div class="event-badge">Community Event</div>
+            <div class="event-date-large">Coffee with GRACE</div>
+            <h2 class="event-title-large">Grab a Coffee, Meet the Community</h2>
+            <p class="event-desc">Join fellow East Hills and Roslyn families for coffee and conversation — no agenda, just good company. Coffee and snacks are on us!</p>
+            <div class="event-meta">
+              <div class="event-meta-item">📅 Thursday, November 5, 10:00 AM</div>
+              <div class="event-meta-item">📍 Pilar Coffee Bar, 333 Warner Avenue, Roslyn, NY</div>
+            </div>
+            <a href="mailto:roslyngrace8@gmail.com" class="event-btn">Contact Us →</a>
+          </div>
+        </div>
+        <div class="featured-card">
+          <div class="featured-img featured-img--poster">
+            <img src="brand_assets/Photos/gala_flyer_2027.png" style="aspect-ratio: 2000 / 1414;" alt="Save the Date: GRACE 2027 Annual Gala, Leonard's Palazzo, March 2027" />
+          </div>
+          <div class="featured-body">
+            <div class="event-badge">Annual Fundraiser</div>
+            <div class="event-date-large">2027 Annual Gala</div>
+            <h2 class="event-title-large">Save the Date</h2>
+            <p class="event-desc">Join GRACE for our 2027 Annual Gala — a celebratory dinner honoring the families, volunteers, and partners who bring our community together, with proceeds supporting GRACE's programs throughout the year. Full event details and tickets will be announced soon.</p>
+            <div class="event-meta">
+              <div class="event-meta-item">📅 March 2027</div>
+              <div class="event-meta-item">📍 Leonard's Palazzo</div>
+            </div>
+            <a href="mailto:roslyngrace8@gmail.com" class="event-btn">Contact Us →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -439,6 +458,20 @@
         <h2 class="section-h2">Upcoming Events</h2>
       </div>
       <div class="events-list">
+        <div class="event-row">
+          <div class="event-date-block">
+            <div class="event-month">NOV</div>
+            <div class="event-day">05</div>
+          </div>
+          <div class="event-info">
+            <div class="event-tag">Community</div>
+            <div class="event-title">Coffee with GRACE</div>
+            <div class="event-location">📍 Pilar Coffee Bar, 10:00 AM</div>
+          </div>
+          <div class="event-action">
+            <a href="mailto:roslyngrace8@gmail.com" class="event-link">Contact Us →</a>
+          </div>
+        </div>
         <div class="event-row">
           <div class="event-date-block">
             <div class="event-month">MAR</div>
